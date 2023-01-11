@@ -1,15 +1,9 @@
 import { defineConfig } from "astro/config";
-
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
 import sitemap from "@astrojs/sitemap";
-
-// https://astro.build/config
 import react from "@astrojs/react";
-
-// https://astro.build/config
+import remarkToc from "remark-toc";
+import remarkCollapse from "remark-collapse";
 export default defineConfig({
   integrations: [
     tailwind({
@@ -20,4 +14,20 @@ export default defineConfig({
     sitemap(),
     react(),
   ],
+  markdown: {
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
+    extendDefaultPlugins: true,
+  },
 });

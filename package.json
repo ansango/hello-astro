@@ -11,6 +11,7 @@
     "astro": "astro",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
+    "cz": "cz",
     "prepare": "husky install"
   },
   "dependencies": {

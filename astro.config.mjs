@@ -1,26 +1,29 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
+  site: "https://astro-paper.pages.dev/",
   integrations: [
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
-    sitemap(),
     react(),
+    sitemap(),
   ],
   markdown: {
     remarkPlugins: [
-      remarkToc,
+      [remarkToc, {}],
       [
         remarkCollapse,
         {
-          test: "Table of contents",
+          test: "Índice",
         },
       ],
     ],

@@ -2,6 +2,7 @@
 /*
 
 # Except these files & folders
+!/.tina
 !/src
 !/public
 !/.github

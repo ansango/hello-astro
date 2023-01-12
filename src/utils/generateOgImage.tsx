@@ -1,5 +1,5 @@
 import satori, { SatoriOptions } from "satori";
-import { site } from "@config";
+import { SITE } from "@config";
 
 const fetchFonts = async () => {
   // Regular Font
@@ -101,12 +101,12 @@ const ogImage = (text: string) => {
                 "
               </span>
               <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-                {site.author}
+                {SITE.author}
               </span>
             </span>
 
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {site.title}
+              {SITE.title}
             </span>
           </div>
         </div>
@@ -136,5 +136,7 @@ const options: SatoriOptions = {
   ],
 };
 
-export const generateOgImage = async (mytext = site.title) =>
+const generateOgImage = async (mytext = SITE.title) =>
   await satori(ogImage(mytext), options);
+
+export default generateOgImage;

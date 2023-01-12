@@ -22,9 +22,15 @@ export default defineConfig({
       {
         name: "post",
         label: "Posts",
-        path: "src/content/posts",
-        format: "mdx",
+        path: "src/contents",
+        format: "md",
         fields: [
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
           {
             type: "string",
             name: "title",
@@ -32,6 +38,7 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
+
           {
             type: "rich-text",
             name: "body",

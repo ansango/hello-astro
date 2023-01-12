@@ -1,7 +1,7 @@
-import type { Frontmatter } from "@types";
 import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../types";
 
-export const getSortedPosts = (posts: MarkdownInstance<Frontmatter>[]) =>
+const getSortedPosts = (posts: MarkdownInstance<Frontmatter>[]) =>
   posts
     .filter(({ frontmatter }) => !frontmatter.draft)
     .sort(
@@ -9,3 +9,5 @@ export const getSortedPosts = (posts: MarkdownInstance<Frontmatter>[]) =>
         Math.floor(new Date(b.frontmatter.datetime).getTime() / 1000) -
         Math.floor(new Date(a.frontmatter.datetime).getTime() / 1000)
     );
+
+export default getSortedPosts;

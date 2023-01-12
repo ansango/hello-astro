@@ -1,8 +1,8 @@
-import type { Frontmatter } from "@types";
+import { slufigyAll } from "./slugify";
 import type { MarkdownInstance } from "astro";
-import { slugifyAll } from "./slugify";
+import type { Frontmatter } from "../types";
 
-export const getPostsByTag = (
-  posts: MarkdownInstance<Frontmatter>[],
-  tag: string
-) => posts.filter(post => slugifyAll(post.frontmatter.tags).includes(tag));
+const getPostsByTag = (posts: MarkdownInstance<Frontmatter>[], tag: string) =>
+  posts.filter(post => slufigyAll(post.frontmatter.tags).includes(tag));
+
+export default getPostsByTag;

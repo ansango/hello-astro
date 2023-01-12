@@ -1,4 +1,4 @@
-export type Frontmatter = {
+export interface Frontmatter {
   title: string;
   ogImage?: string;
   description: string;
@@ -8,7 +8,7 @@ export type Frontmatter = {
   featured: boolean;
   draft: boolean;
   tags: string[];
-};
+}
 
 export type SocialObjects = {
   name: SocialMedia;

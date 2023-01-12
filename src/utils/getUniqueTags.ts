@@ -1,8 +1,8 @@
-import type { Frontmatter } from "@types";
-import type { MarkdownInstance } from "astro";
 import { slugifyStr } from "./slugify";
+import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../types";
 
-export const getUniqueTags = (posts: MarkdownInstance<Frontmatter>[]) => {
+const getUniqueTags = (posts: MarkdownInstance<Frontmatter>[]) => {
   let tags: string[] = [];
   const filteredPosts = posts.filter(({ frontmatter }) => !frontmatter.draft);
   filteredPosts.forEach(post => {
@@ -15,3 +15,5 @@ export const getUniqueTags = (posts: MarkdownInstance<Frontmatter>[]) => {
   });
   return tags;
 };
+
+export default getUniqueTags;
